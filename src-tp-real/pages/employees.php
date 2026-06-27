@@ -27,6 +27,16 @@
         <link rel="stylesheet" href="../design/theme-dark/style.css">
     </head>
     <body>
+        <nav class="navbar">
+        <ul>
+            <li class="brand">Employés DB</li>
+            <li><a href="index.php" >Départements</a></li>
+            <li><a href="search.php">Rechercher</a></li>
+            <li><a href="stats.php">Statistiques</a></li>
+            <li><a href="emp_form.php">Ajouter un employé</a></li>
+        </ul>
+    </nav>
+
         <div class="container">
     <p><a class="btn" href="index.php">&larr; Retour aux départements</a></p>
 
