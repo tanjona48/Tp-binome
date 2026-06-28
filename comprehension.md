@@ -1,43 +1,9 @@
-# Les codes ou la logique que j'ai maintenant compris
-
-```php
-function get_all_lines($sql){
-    //echo $sql;
-    $req = mysqli_query(dbconnect(),$sql );
-    if (!$req) {
-        die('Erreur SQL : ' . mysqli_error(dbconnect()));
-    }
-    $result = array();
-    while ($line = mysqli_fetch_assoc($req)) {
-        $result[] = $line;
-    }
-    mysqli_free_result($req);
-    return $result;
-}
-
-function get_one_line($sql){
-
-    $req = mysqli_query(dbconnect(),$sql );
-    if (!$req) {
-        die('Erreur SQL : ' . mysqli_error(dbconnect()));
-    }
-    $result = mysqli_fetch_assoc($req);
-    mysqli_free_result($req);
-    return $result;
-}
-
-<?php foreach ($departments as $d) { ?>
-                        <option value="<?= $d['dept_no'] ?>"><?= $d['dept_name'] ?></option>
-<?php } ?>
-
-$submitted = isset($_GET['dept_no']);
-
-```
-
-# Les codes ou la logique que je n'ai pas encore compris 
+# Rapport de Compréhension - TP Binôme
 
 
-# ETU5085_Iavo
+# ETU5085_Iavo et ETU5045_Tanjona 
+## 1. Partie de Iavo
+
 ## les codes ou la logique que vous avez **maintenant compris** ;
 
 ```php
@@ -74,6 +40,57 @@ function make_manager($emp_no, $dept_no, $start_date)
 
 
 ```
+
+
+## Les codes ou la logique que je n'ai pas encore compris 
+
+
+## les **fonctions utilisées que vous ne connaissez pas** (ex. `urlencode`, `htmlspecialchars`, l'opérateur `??`…).
+
+
+
+
+
+## 2. Partie de Tanjona
+
+## Les codes ou la logique que j'ai maintenant compris
+
+```php
+function get_all_lines($sql){
+    //echo $sql;
+    $req = mysqli_query(dbconnect(),$sql );
+    if (!$req) {
+        die('Erreur SQL : ' . mysqli_error(dbconnect()));
+    }
+    $result = array();
+    while ($line = mysqli_fetch_assoc($req)) {
+        $result[] = $line;
+    }
+    mysqli_free_result($req);
+    return $result;
+}
+
+function get_one_line($sql){
+
+    $req = mysqli_query(dbconnect(),$sql );
+    if (!$req) {
+        die('Erreur SQL : ' . mysqli_error(dbconnect()));
+    }
+    $result = mysqli_fetch_assoc($req);
+    mysqli_free_result($req);
+    return $result;
+}
+
+<?php foreach ($departments as $d) { ?>
+                        <option value="<?= $d['dept_no'] ?>"><?= $d['dept_name'] ?></option>
+<?php } ?>
+
+$submitted = isset($_GET['dept_no']);
+
+```
+
+
+
 
 ## les codes ou la logique que vous **n'avez pas encore compris** ;
 
@@ -139,9 +156,7 @@ $mode       = $_POST['mode'] ?? 'add';
 
 ```
 
-```
 
-## les **fonctions utilisées que vous ne connaissez pas** (ex. `urlencode`, `htmlspecialchars`, l'opérateur `??`…).
 
 ```php
 function get_employees_by_department($dept_no, $limit, $offset)
