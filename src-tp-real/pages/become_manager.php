@@ -29,10 +29,22 @@
 <html>
     <head>
         <title>Devenir manager</title>
+        <link rel="stylesheet" href="../design/theme-dark/style.css">
     </head>
     <body>
-    <p><a href="fiche.php?emp_no=<?= urlencode($emp_no) ?>">&larr; Retour à la fiche</a></p>
+        <nav class="navbar">
+        <ul>
+            <li class="brand">Employés DB</li>
+            <li><a href="index.php">Départements</a></li>
+            <li><a href="search.php">Rechercher</a></li>
+            <li><a href="stats.php">Statistiques</a></li>
+            <li><a href="emp_form.php">Ajouter un employé</a></li>
+        </ul>
+    </nav>
 
+        <div class="container">
+    <p><a href="fiche.php?emp_no=<?= urlencode($emp_no) ?>" class="btn">&larr; Retour à la fiche</a>
+    </p>
     <?php if (!$employee) { ?>
         <h1>Employé introuvable</h1>
     <?php } elseif (!$current_dept) { ?>
@@ -52,11 +64,13 @@
         <p><strong>Manager en cours :</strong>
             <?= $manager ? $manager['manager_name'] . ' (depuis le ' . $manager['from_date'] . ')' : 'aucun' ?>
         </p>
-
+        <div class="card">
         <form method="post" action="become_manager.php?emp_no=<?= urlencode($emp_no) ?>">
-            <p>Date de début : <input type="date" name="from_date"></p>
-            <p><input type="submit" value="Devenir manager"></p>
+            <p>Date de début : <input class ="form-control"type="date" name="from_date"></p>
+            <p><input type="submit" value="Devenir manager" class="btn btn-secondary"></p>
         </form>
+        </div>
     <?php } ?>
+    </div>
     </body>
 </html>
