@@ -1,3 +1,42 @@
+# Les codes ou la logique que j'ai maintenant compris
+
+```php
+function get_all_lines($sql){
+    //echo $sql;
+    $req = mysqli_query(dbconnect(),$sql );
+    if (!$req) {
+        die('Erreur SQL : ' . mysqli_error(dbconnect()));
+    }
+    $result = array();
+    while ($line = mysqli_fetch_assoc($req)) {
+        $result[] = $line;
+    }
+    mysqli_free_result($req);
+    return $result;
+}
+
+function get_one_line($sql){
+
+    $req = mysqli_query(dbconnect(),$sql );
+    if (!$req) {
+        die('Erreur SQL : ' . mysqli_error(dbconnect()));
+    }
+    $result = mysqli_fetch_assoc($req);
+    mysqli_free_result($req);
+    return $result;
+}
+
+<?php foreach ($departments as $d) { ?>
+                        <option value="<?= $d['dept_no'] ?>"><?= $d['dept_name'] ?></option>
+<?php } ?>
+
+$submitted = isset($_GET['dept_no']);
+
+```
+
+# Les codes ou la logique que je n'ai pas encore compris 
+
+
 # ETU5085_Iavo
 ## les codes ou la logique que vous avez **maintenant compris** ;
 
@@ -80,6 +119,25 @@ function search_employees($dept_no, $name, $age_min, $age_max)
     return get_all_lines($sql);
 }
 
+$mode       = $_POST['mode'] ?? 'add';
+
+```
+
+# Les fonctions utilisées que je ne connaissais pas 
+
+
+```php 
+1 . $dept_name = trim($_POST['dept_name'] ?? '');
+
+2 . <p style="color:red;"><?= htmlspecialchars($error) ?></p>
+
+
+3 . if ($_SERVER['REQUEST_METHOD'] === 'POST' && $current_dept) {
+        $start = $_POST['from_date'] ?? '';
+
+4 . <p><a href="fiche.php?emp_no=<?= urlencode($emp_no) ?>">&larr; Retour à la fiche</a></p>
+
+```
 
 ```
 
